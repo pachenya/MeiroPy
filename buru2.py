@@ -10,6 +10,8 @@ F_NONE   = 1
 F_BLO    = 2
 F_PLAYER = 4
 F_DARK   = 5
+CAMW = 7
+CAMH = 7
 H = 21 
 W = 21
 
@@ -86,6 +88,20 @@ def putmap(flag):
         val = F_PLAYER
       putmap_aux(j, i+1, val)
 
+def putmap_centp_xy(x, y):
+  camx = x-(CAMW)
+  camy = y-(CAMH)
+  for i in range(H):
+    for j in range(W):
+      YY = i - camy
+      XX = j - camx
+      val = seeg[i][j]
+      if i == y and j == x:
+        val = F_PLAYER
+      if XX < 0 or YY < 0 or XX >= W or YY >= H:
+        continue
+      putmap_aux(XX, YY+1, val)
+
 stdscr.clear()
 putmap(False)
 stdscr.getch()
@@ -108,7 +124,8 @@ while(not done):
     for j in range(W + 20):
       bres2(px, py, j-10, i-10, plot_xy, block_xy, 7)
   stdscr.clear()
-  putmap(True)
+  putmap_centp_xy(px,py)
+  # putmap(True)
   key = stdscr.getkey()
   if key == 'Q':
     if okcancel('Realy quit? (o or c)'):
