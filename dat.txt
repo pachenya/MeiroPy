@@ -1,13 +1,18 @@
 # dat.txt
-
-MO_ANGEL:A
-MO_BAKA:B
-MO_CAT:C
-MO_DRAGON:D
-MO_EMU:E
-MO_FLYTRAP:F
-MO_GOBUO:G
-MO_HARPY:H
-MO_IMP:I
-MO_JAM:J
+#
+#       0   1    2  3  4  5   6   7   8
+# DEFNAME:LEV:Name:Ch:HP:MP:Atk:Vit:Agi
+#
+MO_PLAYER:1:You:@:15:10:8:2:1
+MO_CAT:1:Cat:f:13:13:9:2:1
+MO_ANGEL:1:Angel:A:2:2:5:2:1
+MO_BAKA:3:Baka:B:15:10:8:2:1
+MO_CENTAUR:7:Centaur:7:30:2:8:3:1
+MO_DRAGON:9:Dragon:D:45:53:12:3:1
+MO_EMU:2:Emu:E:10:1:3:2:1
+MO_FLYTRAP:5:Flytrap:F:22:11:2:2:0
+MO_GOBUO:2:Gobuo:G:7:1:3:2:1
+MO_HARPY:4:Harpy:H:14:1:2:2:2
+MO_IMP:6:Imp:I:15:15:5:3:1
+MO_JAM:3:Jam:J:20:20:6:1:1
 

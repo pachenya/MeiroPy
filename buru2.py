@@ -10,6 +10,9 @@ F_NONE   = 1
 F_BLO    = 2
 F_PLAYER = 4
 F_DARK   = 5
+F_START  = 6
+F_GOAL   = 7
+
 CAMW = 7
 CAMH = 7
 H = 21 
@@ -17,6 +20,11 @@ W = 21
 
 stdscr.clear()
 stdscr.addstr(1, 2, 'Welcome to the world!')
+stdscr.addstr(3, 2, "It's a small world.")
+stdscr.addstr(4, 2, "Let it be.")
+stdscr.addstr(5, 2, "It won't be long.")
+stdscr.addstr(7, 2, "＊ベッキー42号ぷれぜんつ＊")
+
 stdscr.refresh()
 stdscr.getch()
 
@@ -26,6 +34,13 @@ seeg = [[F_DARK for i in range(W)] for j in range(H)]
 Mm = makemaze.MazeMaker(W, H)
 
 Mm.makemz()
+
+class CWorld:
+  def __init__(self, seed=3):
+    self.player = '@'
+
+def defworld():
+  world = CWorld()
 
 for i in range(H):
   for j in range(W):
@@ -103,8 +118,8 @@ def putmap_centp_xy(x, y):
       putmap_aux(XX, YY+1, val)
 
 stdscr.clear()
-putmap(False)
-stdscr.getch()
+# putmap(False)
+# stdscr.getch()
 
 def okcancel(word):
   stdscr.addstr(0,0,word)
@@ -144,6 +159,9 @@ while(not done):
     my = -1
   elif key == 'd' or key == 'l':
     mx = 1
+  else:
+    continue
+  '''
   elif key == 'q' or key == 'y':
     mx = -1
     my = -1
@@ -158,6 +176,7 @@ while(not done):
     my = 1
   else:
     continue
+  '''
 
   nx = px + mx
   ny = py + my
