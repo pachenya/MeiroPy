@@ -1,11 +1,5 @@
-import action
 import copy
-from enum import Enum, auto
-
-class Ice(Enum):
-  IC_GARI = auto()
-  IC_CHMI = auto()
-  IC_GAMI = auto()
+import actmsg
 
 class ctest(object):
   def __init__(self, x, y):
@@ -27,7 +21,8 @@ def test():
   c = b.copy()
   c.z = 9
   print(c.x, c.y, c.z)
-  print(Ice)
+  s = actmsg.amsg('The Cat', 'the lazy dog', actmsg.Acts.ACT_BITE)
+  print(s)
 
 #'''
 test()

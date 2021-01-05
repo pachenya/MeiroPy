@@ -24,7 +24,7 @@ class cmond:
 
 class cmonds:
   def __init__(self):
-    menum = mkdat.enuml('dat.txt')
+    menum = mkdat.enuml('data/dat.txt')
     self.mlist = menum.get_elist()
     self.mdat = menum.get_dat()
     self.dat = []
@@ -44,5 +44,5 @@ def test():
     i.DEBUGP()
 
 # test
-test()
+# test()
 

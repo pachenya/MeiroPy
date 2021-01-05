@@ -1,11 +1,11 @@
 # mkdat.py
 #
-# To make the list of monsters data and/or skill data.
+# To make the list of monsters data.
 #
 import string
 
 class enuming:
-  def __init__(self, n, namekey, ch):
+  def __init__(self, n, namekey, ch='?'):
     self.n = int(n)
     self.namekey = str(namekey)
     self.ch = ch = str(ch)
@@ -13,7 +13,7 @@ class enuming:
     print(self.n, self.namekey, self.ch)
 
 class enuml:
-  def __init__(self, filename):
+  def __init__(self, filename, debugmode=False):
     f = open(filename, 'r')
     l = f.readlines()
     f.close()
@@ -28,12 +28,11 @@ class enuml:
       i = i[:-1]
       stmp = i.split(':')
       
-      '''
-      for s in stmp:
-        print(s, end=',')
-      print(' : len ->' + str(len(stmp)))
-      '''
-
+      if debugmode:
+        for s in stmp:
+          print(s, end=',')
+        print(' : len ->' + str(len(stmp)))
+      
       ch = '?'
       if len(stmp) >= 2:
         ch = stmp[1]
@@ -48,14 +47,14 @@ class enuml:
     return self.dat
 
 def test():
-  a = enuml('dat.txt')
+  a = enuml('data/dat.txt')
   for i in a.elist:
     i.DEBUGP()
 
 def test2():
-  a = enuml('dat.txt')
+  a = enuml('data/dat.txt')
 
-#test()
-#test2()
+test()
+test2()
 
 
